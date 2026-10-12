@@ -36,6 +36,9 @@ Record numbering begins at 1 for the header; it counts parsed CSV records, not
 physical lines inside quoted values. Entirely blank lines are skipped by the parser.
 Empty input returns empty lists and zero rows. Malformed quoting returns `valid=False`
 and an error message. Extra cells are flagged but not counted as named columns.
+Header cells that are empty or whitespace-only are reported by zero-based position in
+`empty_header_indices`; a blank name is a warning, not an invalid document, and the
+original names are kept in `columns` unchanged.
 
 ## hash_text(text, algorithm="sha256")
 
